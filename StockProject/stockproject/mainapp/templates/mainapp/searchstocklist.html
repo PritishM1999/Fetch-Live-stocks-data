@@ -1,0 +1,70 @@
+<!-- {% extends 'mainapp/basic.html' %}
+{% load static %}
+{% block title %}
+StockPicker
+{% endblock %}
+{% block css %}
+<style>
+</style>
+{% endblock %}
+{% block body %}
+<div>
+    <h3>Found stocks</h3>
+    <ul>
+      {% for stock in stock_list %}
+        <li>
+          {{ stock }},
+        </li>
+      {% endfor %}
+    </ul>
+</div>
+<div class="container"></div>
+<h1>Track Stocks Live</h1>
+<p>Select the stocks from below list to see details.</p>
+<form action="/stocktracker">
+<label for="stockpicker">Select Stocks:</label>
+<select class="form-select form-select-lg mb-3" multiple aria-label="multiple select example" name="stockpicker">
+    {% for i in stockpicker %}
+    <option value="{{i}}">{{i}}</option>
+    {% endfor %}
+</select>
+    <br>
+    <br>
+    <div class="d-grid gap-2">
+        <input class="btn btn-primary" type="submit" value="Fetch Stocks Details">
+      </div>
+</form>
+</div>
+{% endblock %}
+{% block js %}
+<script>
+</script>
+{% endblock %} -->
+
+
+
+
+
+searchstocklist
+
+{% block content %}
+
+
+    <center>
+        {% if searched %}
+        <h1>You Searched For{{ searched }}</h1>
+        <br/>
+        {% for Stock in stocks %}
+        <a href="{% url 'searchstockList' stock.id }">
+            {{ Stock }}</a><br/>
+        <br/>
+        {% else %}
+        <h1>Hey! you didn't searched anything</h1>
+
+        {% endif %}
+        
+    
+    </center>
+    
+
+{% endblock %}

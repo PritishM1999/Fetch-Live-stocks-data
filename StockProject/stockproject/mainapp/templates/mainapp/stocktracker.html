@@ -1,0 +1,51 @@
+{% extends 'mainapp/basic.html' %}
+{% load static %}
+{% block title %}
+{% load myfilters %}
+StockTracker
+{% endblock %}
+{% block css %}
+<style>
+</style>
+{% endblock %}
+{% block body %}
+<div class="container">
+    <h1>Track Stocks Live</h1>
+    <table class="table-container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Sr.No</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Price</th>
+            <th scope="col">Prevoius Close</th>
+            <th scope="col">Open At</th>
+            <th scope="col">Change</th>
+            <th scope="col">Market Cap</th>
+            <th scope="col">Volume</th>
+            <!-- <th scope="col"></th> -->
+          </tr>
+        </thead>
+        <tbody>
+            {% for key, value in data.items %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{key}}</td>
+            <td>{{ value|get:"Quote Price" }}</td>
+            <td>{{ value|get:"Previous Close" }}</td>
+            <td>{{ value|get:"Open" }}</td>
+            <td>{{ value|get:"Market Cap" }}</td>
+            <td>{{ value|get:"Volume" }}</td>
+            <td>{{ value|get:"Quote Price" }}</td>
+
+            <!-- <td>@mdo</td> -->
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+{% endblock %}
+{% block js %}
+<script>
+</script>
+{% endblock %}
